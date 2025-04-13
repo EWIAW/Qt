@@ -1,0 +1,9 @@
+﻿  Generate moc_predefs.h
+  UIC widget.ui
+  MOC widget.h
+  main.cpp
+  widget.cpp
+E:\github\Qt\QtCreator\first\widget.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  moc_widget.cpp
+  正在生成代码...
+  first.vcxproj -> E:\github\Qt\QtCreator\first\debug\first.exe
