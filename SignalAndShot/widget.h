@@ -17,7 +17,7 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
-    void EmitSignal();//用于触发信号用的函数
+//    void EmitSignal();//用于触发信号用的函数
 
 //private slots:
 //    void on_pushButton_clicked();
@@ -28,13 +28,24 @@ public:
 //public slots:
 //    void MySlots();//槽函数声明
 
-signals:
-    void MySignal();//信号函数声明
-    void MySignal(QString str);//重载信号函数
+//signals:
+//    void MySignal();//信号函数声明
+//    void MySignal(QString str);//重载信号函数
+
+//public slots:
+//    void MySlots();//槽函数声明
+//    void MySlots(QString str);//重载槽函数
+
+//signals:
+//    void MySignals();
 
 public slots:
-    void MySlots();//槽函数声明
-    void MySlots(QString str);//重载槽函数
+    void MySlots1();
+//    void MySlots2();
+//    void MySlots3();
+
+//private slots:
+//    void on_pushButton_clicked();
 
 private:
     Ui::Widget *ui;
