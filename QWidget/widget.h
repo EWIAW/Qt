@@ -36,6 +36,10 @@ private slots:
 
     void on_pushButton_sub_clicked();
 
+    void on_pushButton_light_clicked();
+
+    void on_pushButton_dark_clicked();
+
 private:
     Ui::Widget *ui;
 };
