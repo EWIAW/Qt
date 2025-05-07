@@ -13,9 +13,14 @@ class Widget : public QWidget
 
 public:
     Widget(QWidget *parent = nullptr);
+//    void resizeEvent(QResizeEvent *event);
     ~Widget();
 
 private slots:
+
+    void updateProgressBar();
+
+//    void updateTime();
 //    void on_pushButton_clicked();
 
 //    void on_pushButton_2_clicked();
@@ -32,15 +37,33 @@ private slots:
 
 //    void on_pushButton_reject_pressed();
 
-    void on_pushButton_add_clicked();
+//    void on_pushButton_add_clicked();
 
-    void on_pushButton_sub_clicked();
+//    void on_pushButton_sub_clicked();
 
-    void on_pushButton_light_clicked();
+//    void on_pushButton_light_clicked();
 
-    void on_pushButton_dark_clicked();
+//    void on_pushButton_dark_clicked();
+
+//    void on_pushButton_up_clicked();
+//    void on_pushButton_down_clicked();
+//    void on_pushButton_left_clicked();
+//    void on_pushButton_right_clicked();
+
+//    void on_radioButton_clicked();
+//    void on_radioButton_2_clicked();
+//    void on_radioButton_3_clicked();
+
+//    void on_radioButton_clicked();
+
+//    void on_radioButton_2_pressed();
+
+//    void on_radioButton_3_released();
+
+//    void on_radioButton_4_toggled(bool checked);
 
 private:
     Ui::Widget *ui;
+    QTimer* timer;
 };
 #endif // WIDGET_H
