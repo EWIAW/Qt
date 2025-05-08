@@ -18,7 +18,7 @@ public:
 
 private slots:
 
-    void updateProgressBar();
+//    void updateProgressBar();
 
 //    void updateTime();
 //    void on_pushButton_clicked();
@@ -61,6 +61,10 @@ private slots:
 //    void on_radioButton_3_released();
 
 //    void on_radioButton_4_toggled(bool checked);
+
+    void on_pushButton_clicked();
+
+    void on_lineEdit_3_textEdited(const QString &arg1);
 
 private:
     Ui::Widget *ui;

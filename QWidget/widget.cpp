@@ -5,16 +5,30 @@
 #include <QResizeEvent>
 #include <QTimer>
 #include <QProgressBar>
+#include <QRegExpValidator>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    ui->pushButton->setEnabled(false);
 
-    timer = new QTimer(this);
-    connect(timer,&QTimer::timeout,this,&Widget::updateProgressBar);
-    timer->start(100);
+    ui->lineEdit->setPlaceholderText("请输入姓名");
+    ui->lineEdit->setClearButtonEnabled(true);
+
+    ui->lineEdit_2->setPlaceholderText("请输入密码");
+    ui->lineEdit_2->setClearButtonEnabled(true);
+    ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+
+    ui->lineEdit_3->setPlaceholderText("请输入电话号码");
+    ui->lineEdit_3->setClearButtonEnabled(true);
+//    ui->lineEdit_3->setInputMask("000-0000-0000");
+    ui->lineEdit_3->setValidator(new QRegExpValidator(QRegExp("^1\\d{10}$")));
+
+//    timer = new QTimer(this);
+//    connect(timer,&QTimer::timeout,this,&Widget::updateProgressBar);
+//    timer->start(100);
 //    timer = new QTimer(this);
 //    connect(timer,&QTimer::timeout,this,&Widget::updateTime);
 //    timer->start(1000);
@@ -92,16 +106,16 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::updateProgressBar()
-{
-    int value = ui->progressBar->value();
-    if(value >= 100)
-    {
-        timer->stop();
-        return;
-    }
-    ui->progressBar->setValue(value+1);
-}
+//void Widget::updateProgressBar()
+//{
+//    int value = ui->progressBar->value();
+//    if(value >= 100)
+//    {
+//        timer->stop();
+//        return;
+//    }
+//    ui->progressBar->setValue(value+1);
+//}
 
 //void Widget::updateTime()
 //{
@@ -272,3 +286,27 @@ void Widget::updateProgressBar()
 //        qDebug()<<"false";
 //    }
 //}
+
+void Widget::on_pushButton_clicked()
+{
+    QString str = ui->radioButton->isChecked()?"男":"女";
+    qDebug()<<"姓名："<<ui->lineEdit->text()
+           <<"密码："<<ui->lineEdit_2->text()
+          <<"性别："<<str
+         <<"电话："<<ui->lineEdit_3->text();
+}
+
+void Widget::on_lineEdit_3_textEdited(const QString &arg1)
+{
+    qDebug()<<arg1;
+    QString tmp = arg1;
+    int pos = 0;
+    if(ui->lineEdit_3->validator()->validate(tmp,pos) == QValidator::Acceptable)
+    {
+        ui->pushButton->setEnabled(true);
+    }
+    else
+    {
+        ui->pushButton->setEnabled(false);
+    }
+}
